@@ -1,0 +1,21 @@
+{
+  "name": "ennenn",
+  "version": "0.0.0",
+  "description": "Parse and serialise NNTP commands and responses with streams!",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deoxxa/ennenn.git"
+  },
+  "keywords": [
+    "nntp",
+    "usenet",
+    "news",
+    "parser",
+    "serialiser",
+    "serializer",
+    "stream"
+  ],
+  "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
+  "license": "BSD"
+}
