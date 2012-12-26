@@ -2,7 +2,17 @@
 
 var ennenn = require("./index");
 
-var parser = new ennenn.ResponseParser();
+var parser = new ennenn.ResponseParser(function on_response(response) {
+  console.log("[Response started] " + response.status_code + ": " + response.status_text);
+
+  response.on("data", function on_data(chunk) {
+    console.log("[Response data] " + chunk.length);
+  });
+
+  response.on("end", function on_end() {
+    console.log("[Response ended]");
+  });
+});
 
 parser.write("200 this is alright!\r\n200 and");
 parser.write(" so is this");

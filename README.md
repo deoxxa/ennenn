@@ -28,16 +28,14 @@ Usage
 
 Also see [example.js](https://github.com/deoxxa/ennenn/blob/master/example.js).
 
-**WARNING**: this API doesn't exist yet!
-
 ```javascript
 #!/usr/bin/env node
 
 var ennenn = require("ennenn");
 
-var parser = new ennenn.ResponseParser();
-
-parser.on("response", function on_response(response) {
+// The callback passed into the ResponseParser constructor is automatically
+// attached to the "response" event.
+var parser = new ennenn.ResponseParser(function on_response(response) {
   console.log("[Response started] " + response.status_code + ": " + response.status_text);
 
   response.on("data", function on_data(chunk) {
