@@ -26,10 +26,13 @@ Or via git:
 Usage
 -----
 
-Also see [example.js](https://github.com/deoxxa/ennenn/blob/master/example.js).
+Also see [example-response.js](https://github.com/deoxxa/ennenn/blob/master/example-response.js)
+and [example-request.js](https://github.com/deoxxa/ennenn/blob/master/example-request.js).
 
 ```javascript
 #!/usr/bin/env node
+
+// Processing responses
 
 var ennenn = require("ennenn");
 
@@ -45,6 +48,19 @@ var parser = new ennenn.ResponseParser(function on_response(response) {
   response.on("end", function on_end() {
     console.log("[Response ended]");
   });
+});
+```
+
+```javascript
+#!/usr/bin/env node
+
+// Processing requests
+
+var ennenn = require("./index");
+
+// Same deal here with on_request as for on_response on ResponseParser.
+var parser = new ennenn.RequestParser(function on_request(request) {
+  console.log("[Request] " + request.command + ": " + request.arguments.join(", "));
 });
 ```
 
